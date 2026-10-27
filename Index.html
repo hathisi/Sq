@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChemSafe School</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:15px Arial;background:#f1f5f9;color:#172554}
+header{background:#12345a;color:white;padding:18px;text-align:center}
+main{max-width:850px;margin:auto;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.card{background:white;padding:14px;border-radius:8px;border:1px solid #ddd}
+h2{font-size:19px;margin:22px 0 10px}
+h3{font-size:16px;margin-top:0}
+p{line-height:1.5}
+button{background:#087ea4;color:white;border:0;padding:10px;border-radius:6px}
+.status{font-weight:bold;color:#087e59}
+footer{text-align:center;padding:15px;color:#64748b;font-size:12px}
+</style>
+</head>
+
+<body>
+<header>
+<h1>ChemSafe School</h1>
+<p>Quản lý tủ hóa chất thông minh</p>
+</header>
+
+<main>
+<h2>Tổng quan</h2>
+
+<div class="grid">
+<section class="card">
+<h3>Tổng số chai</h3>
+<p>03 chai mẫu</p>
+</section>
+
+<section class="card">
+<h3>Trạng thái tủ</h3>
+<p id="status" class="status">Đang khóa</p>
+<button id="lockBtn" type="button">Mở khóa</button>
+</section>
+
+<section class="card">
+<h3>Cảnh báo</h3>
+<p id="alert">Không có cảnh báo</p>
+</section>
+</div>
+
+<h2>Danh sách hóa chất</h2>
+
+<div class="grid">
+<section class="card">
+<h3>CHEM-001</h3>
+<p>Chai mẫu A</p>
+<p>Vị trí: A01</p>
+<p>Khối lượng: 500 g</p>
+<p>Trạng thái: Đã khóa</p>
+</section>
+
+<section class="card">
+<h3>CHEM-002</h3>
+<p>Chai mẫu B</p>
+<p>Vị trí: A02</p>
+<p>Khối lượng: 450 g</p>
+<p>Trạng thái: Đã khóa</p>
+</section>
+
+<section class="card">
+<h3>CHEM-003</h3>
+<p>Chai mẫu C</p>
+<p>Vị trí: A03</p>
+<p>Khối lượng: 300 g</p>
+<p>Trạng thái: Đã khóa</p>
+</section>
+</div>
+</main>
+
+<footer>ChemSafe School | Mô hình nghiên cứu khoa học THPT</footer>
+
+<script>
+let locked=true;
+const status=document.getElementById("status");
+const alertBox=document.getElementById("alert");
+const btn=document.getElementById("lockBtn");
+
+btn.onclick=function(){
+ locked=!locked;
+ status.textContent=locked?"Đang khóa":"Đang mở";
+ alertBox.textContent=locked?"Không có cảnh báo":"Đang mô phỏng mở tủ";
+ btn.textContent=locked?"Mở khóa":"Khóa tủ";
+};
+</script>
+</body>
+</html>
